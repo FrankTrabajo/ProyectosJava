@@ -65,7 +65,9 @@ public class App {
 
 		// Hemos creado los tableros de juego y el que verá el jugador
 		// Vamos a mostrar el tablero del jugador
-		mostrarTablero(tableroJugador);
+		mostrarTableroJugador(tableroJugador);
+		barcosDeCinco(tablero);
+		mostrarTablero(tablero);
 	}
 
 	public static int[][] tablero(int filas, int columnas) {
@@ -90,13 +92,118 @@ public class App {
 		return tableroJugador;
 	}
 
-	public static void mostrarTablero(String[][] tableroJugador) {
+	public static void mostrarTableroJugador(String[][] tableroJugador) {
 		for (int i = 0; i < tableroJugador.length; i++) {
 			for (int j = 0; j < tableroJugador[i].length; j++) {
 				System.out.print(tableroJugador[i][j] + " ");
 			}
 			System.out.println("");
 		}
+	}
+
+	public static void mostrarTablero(int[][] tablero) {
+		for (int i = 0; i < tablero.length; i++) {
+			for (int j = 0; j < tablero[i].length; j++) {
+				System.out.print(tablero[i][j] + " ");
+			}
+			System.out.println("");
+		}
+	}
+
+	// Vamos a introducir los barcos dentro del tablero
+	public static int[][] barcosDeCinco(int[][] tablero) {
+		for (int i = 0; i < 2; i++) {
+			int horizontalOVertical = (int) (Math.random() * 2 + 1);
+
+			int rowRandom = (int) (Math.random() * ROW);
+			int colRandom = (int) (Math.random() * COL);
+
+			for (int k = rowRandom - 4, l = colRandom - 4; k < 10 && l < 10; k++, l++) {
+				// si desde la posicion en la que esta rowRandom no hay ningun 5, 4 bloques a la
+				// derecha y a la izquierda, se pone
+				try {
+					if (tablero[k][colRandom] == 5 || tablero[rowRandom][l] == 5) {
+						rowRandom = (int) (Math.random() * ROW);
+						colRandom = (int) (Math.random() * COL);
+					}
+				} catch (Exception e) {
+					// TODO: handle exception
+				}
+			}
+			for (int j = 0; j < 5; j++) {
+				if (horizontalOVertical == 1) {
+					if (colRandom + 4 < COL) {
+						tablero[rowRandom][colRandom + j] = 50 + i;
+					} else {
+						tablero[rowRandom][colRandom - j] = 50 + i;
+					}
+				} else {
+					if (rowRandom + 4 < ROW) {
+						tablero[rowRandom + j][colRandom] = 50 + i;
+					} else {
+						tablero[rowRandom - j][colRandom] = 50 + i;
+					}
+				}
+			}
+		}
+
+		return tablero;
+	}
+
+	public static int[][] barcosDeTres(int[][] tablero) {
+		boolean tocar = false;
+		while (tocar == false) {
+			tablero = barcosDeCinco(tablero);
+			tocar = true;
+			// Creacion de 5 barcos de 2
+
+			for (int i = 0; i < 3; i++) {
+				int horizontalOVertical = (int) (Math.random() * 2 + 1);
+				int rowRandom = (int) (Math.random() * ROW);
+				int colRandom = (int) (Math.random() * COL);
+				for (int j = 0; j < 3; j++) {
+					if (horizontalOVertical == 1) {
+						// Horizontal
+						if (colRandom + j < COL - 3) {
+							if (tablero[rowRandom][colRandom + j] != 0) {
+								tocar = false;
+							} else {
+								tablero[rowRandom][colRandom + j] = 30 + i;
+							}
+						} else {
+							if (tablero[rowRandom][colRandom - j] != 0) {
+								tocar = false;
+							} else {
+								tablero[rowRandom][colRandom - j] = 30 + i;
+							}
+						}
+					} else {
+						// Vertical
+						if (rowRandom + j < ROW - 3) {
+							if (tablero[rowRandom + j][colRandom] != 0) {
+								tocar = false;
+							} else {
+								tablero[rowRandom + j][colRandom] = 30 + i;
+							}
+						} else {
+							if (tablero[rowRandom - j][colRandom] != 0) {
+								tocar = false;
+							} else {
+								tablero[rowRandom - j][colRandom] = 30 + i;
+							}
+						}
+					}
+				}
+			}
+			if (tocar == false) {
+				for (int i = 0; i < tablero.length; i++) {
+					for (int j = 0; j < tablero[i].length; j++) {
+						tablero[i][j] = 0;
+					}
+				}
+			}
+		}
+		return tablero;
 	}
 
 }
