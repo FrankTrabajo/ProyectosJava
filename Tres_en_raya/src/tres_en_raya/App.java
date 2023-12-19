@@ -63,7 +63,6 @@ public class App {
 		int posicionDos = 0;
 		
 		System.out.println("Jugador 1 coloque su pieza");
-		System.out.println("Solo puede ser X");
 		do {
 		System.out.println("Diga las coordenadas de la fila (0 a 2 tanto fila y columna)");
 		try {
@@ -148,8 +147,7 @@ public static String[][] colocarPiezaJ2(String[][] tablero){
 		int posicionUno = 0;
 		int posicionDos = 0;
 		
-		System.out.println("Jugador 1 coloque su pieza");
-		System.out.println("Solo puede ser O");
+		System.out.println("Jugador 2 coloque su pieza");
 		do {
 		System.out.println("Diga las coordenadas de la fila (0 a 2 tanto fila y columna)");
 		try {
@@ -232,17 +230,20 @@ public static String[][] colocarPiezaJ2(String[][] tablero){
 	public static boolean comprobarFin(String[][] tablero) {
 		//Si han acabado devuelve True si no False
 		boolean ret = false;
+		int cont = 0;
 		for (int i = 0; i < tablero.length; i++) {
 			for (int j = 0; j < tablero[i].length; j++) {
 				if(tablero[i][j] == ".") {
-					ret = false;
-				} else {
-					ret = true;
+					cont++;
 				}
 			}
 		}
-		
-		
+		if(cont > 0) {
+			ret = false;
+		} else if (cont == 0){
+			ret = true;
+		}
+		cont = 0;
 		return ret;
 	}
 	
