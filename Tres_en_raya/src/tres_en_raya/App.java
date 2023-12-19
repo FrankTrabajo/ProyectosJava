@@ -27,8 +27,9 @@ public class App {
 	public static void menu() {
 		String [][] tablero = crearTablero();
 		mostrarTablero(tablero);
-		tablero = colocarPiezaJ1(tablero);
-		mostrarTablero(tablero);
+		//tablero = colocarPiezaJ1(tablero);
+		//mostrarTablero(tablero);
+		juego(tablero);
 	}
 	
 	public static String[][] crearTablero() {
@@ -102,11 +103,164 @@ public class App {
 		
 		for (int i = 0; i < tablero.length; i++) {
 			for (int j = 0; j < tablero[i].length; j++) {
+				while(tablero[posicionUno][posicionDos] == "O") {
+					System.out.println("Ahi no puedes poner, ya hay una pieza");
+						System.out.println("Diga las coordenadas de la fila (0 a 2 tanto fila y columna)");
+						try {
+							posicionUno = sc.nextInt();
+							if (posicionUno > 2) {
+								System.out.println("Recueda el maximo es 2 y el minimo 0");
+								posicionUno = -1;
+							}
+							else if (posicionUno < 0) {
+								System.out.println("Recueda el maximo es 2 y el minimo 0");
+							}
+						} catch (Exception e) {
+							System.out.println("Recueda que estamos jugando con numeros");
+							posicionUno = -1;
+							sc.next();
+						}
+							System.out.println("Diga las coordenadas de la columna (0 a 2 tanto fila y columna)");
+							try {
+								posicionDos = sc.nextInt();
+								if (posicionDos > 2) {
+									System.out.println("Recueda el maximo es 2 y el minimo 0");
+									posicionDos = -1;
+								}
+								else if (posicionDos < 0) {
+									System.out.println("Recueda el maximo es 2 y el minimo 0");
+								}
+							} catch (Exception e) {
+								System.out.println("Recueda que estamos jugando con numeros");
+								posicionDos = -1;
+								sc.next();
+							}
+				}
 				tablero[posicionUno][posicionDos] = "X";
 			}
 		}
 		
 		return tablero;
+	}
+	
+public static String[][] colocarPiezaJ2(String[][] tablero){
+		
+		int posicionUno = 0;
+		int posicionDos = 0;
+		
+		System.out.println("Jugador 1 coloque su pieza");
+		System.out.println("Solo puede ser O");
+		do {
+		System.out.println("Diga las coordenadas de la fila (0 a 2 tanto fila y columna)");
+		try {
+			posicionUno = sc.nextInt();
+			if (posicionUno > 2) {
+				System.out.println("Recueda el maximo es 2 y el minimo 0");
+				posicionUno = -1;
+			}
+			else if (posicionUno < 0) {
+				System.out.println("Recueda el maximo es 2 y el minimo 0");
+			}
+		} catch (Exception e) {
+			System.out.println("Recueda que estamos jugando con numeros");
+			posicionUno = -1;
+			sc.next();
+		}
+		}while(posicionUno == -1);
+		
+		do {
+			System.out.println("Diga las coordenadas de la columna (0 a 2 tanto fila y columna)");
+			try {
+				posicionDos = sc.nextInt();
+				if (posicionDos > 2) {
+					System.out.println("Recueda el maximo es 2 y el minimo 0");
+					posicionDos = -1;
+				}
+				else if (posicionDos < 0) {
+					System.out.println("Recueda el maximo es 2 y el minimo 0");
+				}
+			} catch (Exception e) {
+				System.out.println("Recueda que estamos jugando con numeros");
+				posicionDos = -1;
+				sc.next();
+			}
+			}while(posicionUno == -1);
+
+		
+		for (int i = 0; i < tablero.length; i++) {
+			for (int j = 0; j < tablero[i].length; j++) {
+				while(tablero[posicionUno][posicionDos] == "X") {
+					System.out.println("Ahi no puedes poner, ya hay una pieza");
+						System.out.println("Diga las coordenadas de la fila (0 a 2 tanto fila y columna)");
+						try {
+							posicionUno = sc.nextInt();
+							if (posicionUno > 2) {
+								System.out.println("Recueda el maximo es 2 y el minimo 0");
+								posicionUno = -1;
+							}
+							else if (posicionUno < 0) {
+								System.out.println("Recueda el maximo es 2 y el minimo 0");
+							}
+						} catch (Exception e) {
+							System.out.println("Recueda que estamos jugando con numeros");
+							posicionUno = -1;
+							sc.next();
+						}
+							System.out.println("Diga las coordenadas de la columna (0 a 2 tanto fila y columna)");
+							try {
+								posicionDos = sc.nextInt();
+								if (posicionDos > 2) {
+									System.out.println("Recueda el maximo es 2 y el minimo 0");
+									posicionDos = -1;
+								}
+								else if (posicionDos < 0) {
+									System.out.println("Recueda el maximo es 2 y el minimo 0");
+								}
+							} catch (Exception e) {
+								System.out.println("Recueda que estamos jugando con numeros");
+								posicionDos = -1;
+								sc.next();
+							}
+				}
+				tablero[posicionUno][posicionDos] = "O";
+			}
+		}
+		
+		return tablero;
+	}
+
+	public static boolean comprobarFin(String[][] tablero) {
+		//Si han acabado devuelve True si no False
+		boolean ret = false;
+		for (int i = 0; i < tablero.length; i++) {
+			for (int j = 0; j < tablero[i].length; j++) {
+				if(tablero[i][j] == ".") {
+					ret = false;
+				} else {
+					ret = true;
+				}
+			}
+		}
+		
+		
+		return ret;
+	}
+	
+	public static void juego(String[][] tablero) {
+		
+		boolean fin = comprobarFin(tablero);
+		
+		while(fin == false) {
+			//Comienza el jugador 1
+			//Seguido el jugador 2
+			tablero = colocarPiezaJ1(tablero);
+			mostrarTablero(tablero);
+			fin = comprobarFin(tablero);
+			tablero = colocarPiezaJ2(tablero);
+			mostrarTablero(tablero);
+			fin = comprobarFin(tablero);
+		}
+		System.out.println("Fin");
 	}
 
 }
