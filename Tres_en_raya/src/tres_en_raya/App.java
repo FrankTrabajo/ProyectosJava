@@ -282,7 +282,7 @@ public class App {
 			cont = 0;
 		}
 		// Diagonal desde derecha
-		for (int i = 2; i > 0; i--) {
+		for (int i = tablero.length - 1; i > 0; i--) {
 			if (tablero[i][i] == "X") {
 				cont++;
 			}
@@ -292,9 +292,9 @@ public class App {
 			}
 			cont = 0;
 		}
-		
-		//JUGADOR 2
-		//HORIZONTAL
+
+		// JUGADOR 2
+		// HORIZONTAL
 		for (int i = 0; i < tablero.length; i++) {
 			for (int j = 0; j < tablero[i].length; j++) {
 				if (tablero[i][j] == "O") {
@@ -352,24 +352,28 @@ public class App {
 		boolean fin = comprobarFin(tablero);
 		boolean ganador = comprobarGanador(tablero);
 
-		while (fin == false || ganador == false) {
-			fin = true;
+		while (fin == false) {
 			while (ganador == false) {
-				ganador = true;
-				// Comienza el jugador 1
-				// Seguido el jugador 2
-				tablero = colocarPiezaJ1(tablero);
+				colocarPiezaJ1(tablero);
 				mostrarTablero(tablero);
-				ganador = comprobarGanador(tablero);
 				fin = comprobarFin(tablero);
-				if (fin == false && ganador == false) {
-					tablero = colocarPiezaJ2(tablero);
+				ganador = comprobarGanador(tablero);
+				if (fin == true) {
+					ganador = true;
+					System.out.println("Empate, no ha ganado nadie");
+				}
+				if (ganador == false) {
+					colocarPiezaJ2(tablero);
 					mostrarTablero(tablero);
-					ganador = comprobarGanador(tablero);
 					fin = comprobarFin(tablero);
+					ganador = comprobarGanador(tablero);
+					if (fin == true) {
+						ganador = true;
+						System.out.println("Empate, no ha ganado nadie");
+					}
 				}
 			}
-
+			fin = true;
 		}
 		System.out.println("*******************************************");
 		System.out.println("Se ha acabado el juego");
