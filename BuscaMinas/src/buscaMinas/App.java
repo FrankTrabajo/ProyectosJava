@@ -58,4 +58,89 @@ public class App {
 		
 		return tablero;
 	}
+	
+	public static boolean finPartida(int[][] tablero){
+        //devuelve falso si quedan casillas por marcar
+        //devuelve cierto si no quedan casillas a 0
+        //---------------------------------------------------
+        //si fin es = a true has ganado
+        //si fin es = a false aun no has ganado
+        for (int i = 0; i < tablero.length; i++) {
+            for (int j = 0; j < tablero[i].length; j++) {
+                if(tablero[i][j] == 0){
+                    return false;
+                }
+            }
+        }
+        return true;
+    }
+	
+	public static boolean minaCerca(int[][] tablero, int columna, int fila){
+        //devuelve cierto si hay una mina cerca
+        //devuelve false si no hay una mina cerca
+
+        int mina = 0;
+
+                
+                //Miramos los valores de la izquierda cuando se pueda
+                if(columna != 0){
+                    if(tablero[fila][columna-1] == 1){
+                        mina++;
+                    }
+
+                    //izquierda arriba
+                    if (fila != 0){
+                        if(tablero[fila-1][columna-1] == 1){
+                            mina++;
+                        } 
+                    }
+                    //izquierda abajo
+                    if (fila != (6-1)){
+                        if(tablero[fila+1][columna-1] == 1){
+                            mina++;
+                        } 
+                    }
+                }
+                if(columna != (6-1)){
+                    //Podemos comprobar los valores de la derecha
+                    //justo a la derecha
+                    if(tablero[fila][columna+1] == 1){
+                        mina++;
+                    }
+
+                    //derecha arriba
+                    if (fila != 0){
+                        if(tablero[fila-1][columna+1] == 1){
+                            mina++;
+                        } 
+                    }
+                    //izquierda abajo
+                    if (fila != (6-1)){
+                        if(tablero[fila+1][columna+1] == 1){
+                            mina++;
+                        } 
+                    }
+
+                }
+                if (fila != 0){
+                    //Podemos comprobar los valores de arriba
+                    if(tablero[fila-1][columna] == 1){
+                        mina++;
+                    }
+                }
+                if(fila != (6-1)){
+                    if(tablero[fila+1][columna] == 1){
+                        mina++;
+                    }
+                }
+
+                if(mina > 0){
+                    System.out.println("Cuidado!!!!! \tHay " + mina + " minas cerca");
+                    return true;
+                }else {
+                    System.out.println("No hay minas cerca");
+                    return false;
+                }
+    }
+
 }
