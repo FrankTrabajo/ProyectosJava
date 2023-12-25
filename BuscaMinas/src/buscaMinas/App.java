@@ -59,7 +59,60 @@ public class App {
 		return tablero;
 	}
 	
-	public static boolean finPartida(int[][] tablero){
+	public static boolean consultado(int linea, int columna, int[][] tablero, int[][] tableroJugador){
+
+        //--------COMPROBAR SI EL NUMERO QUE HEMOS DICHO ES MINA, VICTORIA O NADA---------------
+
+        
+
+        int lin = linea;
+        int col = columna;
+
+        boolean seguir;
+        boolean ganar = finPartida(tablero);
+
+        if (tablero[linea][columna] == 1){
+            System.out.println("***************¡¡¡¡¡¡¡Has pisado una mina!!!!!!*************");
+            tableroJugador[linea][columna] = 1;
+            seguir = false;
+        }else if (tablero[linea][columna] == 2){
+            System.out.println("Ese sitio ya le has pisado");
+            seguir = true;
+        }
+        else {
+            System.out.println("Has pisado en zona vacía");
+            tablero[linea][columna] = 2;
+            tableroJugador[linea][columna] = 2;
+            //boolean mina = minaCerca(tablero, columna, linea);
+            minaCerca(tablero, columna, linea);
+            seguir = true;
+        }
+
+        if (ganar) {
+            System.out.println("Has ganado!");
+            seguir = false;
+        }
+
+        mostrarTablero(tableroJugador);
+
+        return seguir;
+    }
+
+    public static boolean ponerBandera(int linea, int columna, int[][] tablero, int[][] tableroJugador){
+
+        tableroJugador[linea][columna] = 4;
+        mostrarTablero(tableroJugador);
+
+        return true;
+    }
+
+    /*
+    1-Quitar bandera
+    2-El juego termina cuando todo el tablero sean 1 y 2, cuando todo lo que esté a distinto de 0 acabo
+    3-¿cuándo acabo? tablero[i][j] != 0;
+    */
+
+    public static boolean finPartida(int[][] tablero){
         //devuelve falso si quedan casillas por marcar
         //devuelve cierto si no quedan casillas a 0
         //---------------------------------------------------
@@ -74,8 +127,8 @@ public class App {
         }
         return true;
     }
-	
-	public static boolean minaCerca(int[][] tablero, int columna, int fila){
+
+    public static boolean minaCerca(int[][] tablero, int columna, int fila){
         //devuelve cierto si hay una mina cerca
         //devuelve false si no hay una mina cerca
 
@@ -142,5 +195,5 @@ public class App {
                     return false;
                 }
     }
-
+    
 }
