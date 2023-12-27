@@ -63,4 +63,28 @@ public class App {
 
 		return 0;
 	}
+	
+	public static void visualizarBebidas() {
+		for (int i = 0; i < arrayBebida.length; i++) {
+			System.out.println("Nombre: " + arrayBebida[i] + " |Codigo: " + arrayBebidaCodigo[i] + " |Precio: "
+					+ arrayBebidaPrecio[i] + "||");
+		}
+	}
+
+	public static void visualizarComida() {
+		for (int i = 0; i < arrayComida.length; i++) {
+			System.out.println("Nombre: " + arrayComida[i] + " |Codigo: " + arrayComidaCodigo[i] + " |Precio: "
+					+ arrayComidaPrecio[i] + "||");
+		}
+	}
+
+	public static void comprarBebida() {
+		System.out.println("La compra se ha realizado!");
+		// Este es tu cambio
+	}
+
+	public static void comprarComida() {
+		System.out.println("La compra se ha realizado!");
+		// Este es tu cambio
+	}
 }
