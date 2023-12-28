@@ -87,4 +87,26 @@ public class App {
 		System.out.println("La compra se ha realizado!");
 		// Este es tu cambio
 	}
+	
+	public static int seleccionarBebida(char codigo) {
+		int ret = -1;
+		for (int i = 0; i < arrayBebidaCodigo.length; i++) {
+			if (codigo == arrayBebidaCodigo[i]) {
+				ret = i;
+				break;
+			}
+		}
+		return ret;
+	}
+
+	public static int seleccionarComida(char codigo) {
+		int ret = 0;
+		for (int i = 0; i < arrayComidaCodigo.length; i++) {
+			if (codigo == arrayComidaCodigo[i]) {
+				ret = i;
+				break;
+			}
+		}
+		return ret;
+	}
 }
