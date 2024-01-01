@@ -29,7 +29,7 @@ public class App {
 		crearTablero();//Lo que hace esto es rellenar el tablero con _ 
 		//Ahora tenemos que coger "la palabra del dia", para ello crearemos un random de logintud
 		//La lista del diccionario y de minimo 1
-		int numeroAleatorio = (int) (Math.random()*diccionario.size()+1);
+		
 		
 		
 	}
@@ -43,9 +43,15 @@ public class App {
 		return tableroJugador;
 	}
 	
-	public static String[] palabraDelDia(int numero) {
+	public static String[] palabraDelDia() {
 		String[] palabraDelDia = new String[5];
+		int numeroAleatorio = (int) (Math.random()*diccionario.size()+1);
+		//Hay que sacar una palabra de la lista
 		
+		String palabra = diccionario.get(numeroAleatorio);
+		
+		palabraDelDia = palabra.split("");
+
 		return palabraDelDia;
 	}
 }
