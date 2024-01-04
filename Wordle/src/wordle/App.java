@@ -126,8 +126,8 @@ public class App {
 		System.out.println("Si fallas has perdido");
 
 		while (vidas > 0) {
-			comprobarPalabra(palabraJuego);
-			iniciarJuego = comprobarFinal(comprobarPalabra(palabraJuego));
+			char[] tableroDeJuego = comprobarPalabra(palabraJuego);
+			iniciarJuego = comprobarFinal(tableroDeJuego);
 			if(iniciarJuego == true) {
 				System.out.println("Muy Bien! HAS GANADO");
 				vidas = -1;
