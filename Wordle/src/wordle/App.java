@@ -56,12 +56,30 @@ public class App {
 				tableroJugador[i] = palabraJugador[i];
 			}
 		}
+		
+		comprobarLetrasTablero(palabraDelDia, palabraJugador);
 
 		for (int i = 0; i < tableroJugador.length; i++) {
 			System.out.print(tableroJugador[i] + " ");
 		}
 
 		return tableroJugador;
+	}
+	
+	public static void comprobarLetrasTablero(char[] tableroJuego, char[] palabraJugador) {
+		//Si la letra está pero está mal posicionada debe decir que la letra está pero mal posicionada
+		//Si la letra está bien posicionada, no dice nada
+		
+		for (int i = 0; i < palabraJugador.length; i++) {
+			char letra = palabraJugador[i];
+			//aqui guardar una letra
+			for (int j = 0; j < tableroJuego.length; j++) {
+				//comparar aqui la letra anterior por si aparece en la palabra del dia
+				if(letra == tableroJuego[j]) {
+					System.out.println("La letra " + letra + " aparece en la palabra");
+				}
+			}
+		}
 	}
 
 	public static boolean comprobarFinal(char[] tablero) {
@@ -117,4 +135,5 @@ public class App {
 		}
 
 	}
+	
 }
