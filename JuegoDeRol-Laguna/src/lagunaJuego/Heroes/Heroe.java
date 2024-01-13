@@ -67,7 +67,15 @@ public class Heroe {
 		this.ataque = ataque;
 	}
 	
+	public void danioRecibido(int damage) {
+		int daño = damage - armadura;
+		vida -= daño;
+		System.out.println(nombre + " recibe " + daño + " puntos de daño");
+	}
 	
+	public void presentacion() {
+		//Aqui se presenta el personaje
+	}
 	
 	
 	

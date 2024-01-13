@@ -14,6 +14,12 @@ public class Jefe extends Monstruos{
 
 	}
 	
+	@Override
+	public void presentacion() {
+		System.out.println("¿Quien se atreve a combatir contra " + nombre + 
+				" el demonio negro");
+	}
+	
 	//Tiene mas vida que ningun otro personaje del juego
 	//Tiene mas daño que nadie
 	//Tiene mas mana

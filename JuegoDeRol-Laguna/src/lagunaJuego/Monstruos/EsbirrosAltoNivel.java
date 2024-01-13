@@ -13,6 +13,11 @@ public class EsbirrosAltoNivel extends Monstruos {
 		super(nombre, tipo, vida, armadura, mana, ataque);
 		
 	}
+	
+	@Override
+	public void presentacion() {
+		System.out.println("Este será tu fin asqueroso humano");
+	}
 
 	// Los esbirros solo tienen una tirada de dados, dependiendo del numero tienen otra tirada mas
 	// Tienen poco daño un poco mas que los esbirros normales y poca vida pero mas que los normales

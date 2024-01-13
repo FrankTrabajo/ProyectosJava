@@ -14,6 +14,11 @@ public class Esbirros extends Monstruos {
 		
 	}
 	
+	@Override
+	public void presentacion() {
+		System.out.println("Acabare contigo!");
+	}
+	
 	//Los esbirros solo tienen una tirada de dados
 	//Tienen poco daño y poca vida
 	//Tienen poca mana

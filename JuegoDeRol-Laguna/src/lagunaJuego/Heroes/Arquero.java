@@ -14,6 +14,10 @@ public class Arquero extends Heroe{
 		
 	}
 	
+	@Override
+	public void presentacion() {
+		System.out.println("Mi nombre es " + nombre + " y con mi flecha acabare contigo");
+	}
 	//Los arqueros son agiles son capaces de lanzar hasta 2 ataques a la vez, el segundo mas debil que el primero
 	//La armadura que tienen es menor que el guerrero pero mayor al mago
 	//El mana es bajo al mago y mayor al guerrero
