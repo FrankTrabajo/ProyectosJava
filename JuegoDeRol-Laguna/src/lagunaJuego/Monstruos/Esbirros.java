@@ -23,21 +23,15 @@ public class Esbirros extends Monstruos {
 		System.out.println("Acabare contigo!");
 	}
 	
-	public int menuAtaque() {
-		System.out.println("¿Que tipo de ataque deseas hacer?");
-		System.out.println("1. Ataque normal -30 mana");
-		System.out.println("2. Garrote -40 mana ");
-		int opcion = sc.nextInt();
-		int damage = 0;
-		switch(opcion) {
-		case 1:
-			damage = ataqueNormal();
-		break;
-		case 2:
-			damage = ataqueBolaDeFuego();
-		break;
+	public int ataqueEsbirro() {
+		int dado = (int) (Math.random()*12+1);
+		int daño = 0;
+		if(dado % 2 == 0) {
+			daño = ataqueNormal();
+		} else {
+			daño = ataqueGarrote();
 		}
-		return damage;
+		return daño;
 	}
 	
 	public int ataqueNormal() {
@@ -59,7 +53,7 @@ public class Esbirros extends Monstruos {
 		return daño;
 	}
 	
-	public int ataqueBolaDeFuego() {
+	public int ataqueGarrote() {
 		//Sera un dado de 12 caras, si sale par hace el daño normal mas el numero que haya sacado
 		//Si sale impar solo hacer el daño de ataque normal
 		int daño = ataque;
