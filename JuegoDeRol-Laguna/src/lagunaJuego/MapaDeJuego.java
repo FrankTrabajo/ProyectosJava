@@ -28,27 +28,42 @@ public class MapaDeJuego {
 	public void menuDePersonajes() {
 		System.out.println("Este es el menu de personajes, aqui tendras que elegir entre Arquero, Guerrero o Mago");
 		System.out.println("Cual eliges?");
+		System.out.println("\t Los arqueros son muy habiles a la hora de luchar, pueden hasta atacar dos veces por turno");
+		System.out.println("\t Los guerreros son unos grandes, nobles y fuertes caballeros con gran armadura y mucha vida");
+		System.out.println("\t Los magos provienen de una antigua civilizacion, pueden lanzar muchos hechizos y tienen mucho daño");
+		String personaje = sc.next();
+		System.out.println("Como te llamas?");
+		String nombre = sc.next();
+		seleccionDelPersonaje(personaje, nombre);
+		
+		System.out.println("GENERANDO MUNDO...");
+		
 	}
 	
 	
 	//Presentacion por elegir personaje
-	public void seleccionDelPersonaje(String tipoPersonaje) {
+	public Heroe seleccionDelPersonaje(String tipoPersonaje, String nombre) {
 		
 		System.out.println("Has elegido ser " + tipoPersonaje + " sabia eleccion");
 		
 		if(tipoPersonaje.equalsIgnoreCase("Arquero")) {
-			System.out.println("Los arqueros son muy habiles a la hora de luchar, pueden hasta atacar dos veces por turno");
+			Heroe jugadorArquero = new Heroe(nombre, tipoPersonaje);
+			heroes =  jugadorArquero;
 		} else if(tipoPersonaje.equalsIgnoreCase("Guerrero")) {
-			System.out.println("Los guerreros son unos grandes, nobles y fuertes caballeros con gran armadura y mucha vida");
+			Heroe  jugadorGuerrero = new Heroe(nombre, tipoPersonaje);
+			heroes =  jugadorGuerrero;
 		} else if(tipoPersonaje.equalsIgnoreCase("Mago")) {
-			System.out.println("Los magos provienen de una antigua civilizacion, pueden lanzar muchos hechizos y tienen mucho daño");
+			Heroe  jugadorMago = new Heroe(nombre, tipoPersonaje);
+			heroes =  jugadorMago;
 		}
+		return heroes;
 
 	}
 	
 	//En el mapa tendremos que meter 3 enemigos y 1 solo heroe
 	
 	public void comienzoDelJuego(Heroe h, Monstruos m1, Monstruos m2, Monstruos m3) {
+		
 		
 		
 		
