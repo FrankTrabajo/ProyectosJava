@@ -8,16 +8,6 @@ public class Monstruos {
 	public int armadura;
 	public int mana;
 	public int ataque;
-	
-	public Monstruos(String nombre, String tipo, int vida, int armadura, int mana, int ataque) {
-		super();
-		this.nombre = nombre;
-		this.tipo = tipo;
-		this.vida = vida;
-		this.armadura = armadura;
-		this.mana = mana;
-		this.ataque = ataque;
-	}
 
 	public String getNombre() {
 		return nombre;

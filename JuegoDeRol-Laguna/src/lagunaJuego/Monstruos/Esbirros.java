@@ -6,17 +6,13 @@ public class Esbirros extends Monstruos {
 
 	private static Scanner sc = new Scanner(System.in);
 	
-	String nombre;
+	String nombre = "Esbirro";
 	String tipo = "Esbirros";
 	int vida = 200;
 	int armadura = 10;
 	int mana = 30;
 	int ataque = 30;
 	
-	public Esbirros(String nombre, String tipo, int vida, int armadura, int mana, int ataque) {
-		super(nombre, tipo, vida, armadura, mana, ataque);
-		
-	}
 	
 	@Override
 	public void presentacion() {

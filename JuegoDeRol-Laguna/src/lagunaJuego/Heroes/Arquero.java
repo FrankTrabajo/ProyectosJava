@@ -14,7 +14,7 @@ public class Arquero extends Heroe{
 	int ataque = 40;
 	
 	public Arquero(String nombre, String tipo, int vida, int armadura, int mana, int ataque) {
-		super(nombre, tipo, vida, armadura, mana, ataque);
+		super(nombre, tipo);
 		
 	}
 	

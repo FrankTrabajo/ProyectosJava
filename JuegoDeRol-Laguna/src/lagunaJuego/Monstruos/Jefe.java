@@ -2,17 +2,13 @@ package lagunaJuego.Monstruos;
 
 public class Jefe extends Monstruos{
 
-	String nombre;
+	String nombre = "El Gran";
 	String tipo = "Jefe";
 	int vida = 1000;
 	int armadura = 45;
 	int mana = 200;
 	int ataque = 230;
 	
-	public Jefe(String nombre, String tipo, int vida, int armadura, int mana, int daño) {
-		super(nombre, tipo, vida, armadura, mana, daño);
-
-	}
 	
 	@Override
 	public void presentacion() {
