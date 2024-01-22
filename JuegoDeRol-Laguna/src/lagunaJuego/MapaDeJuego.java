@@ -1,9 +1,13 @@
 package lagunaJuego;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
 import lagunaJuego.Heroes.Heroe;
+import lagunaJuego.Monstruos.Esbirros;
+import lagunaJuego.Monstruos.EsbirrosAltoNivel;
+import lagunaJuego.Monstruos.Jefe;
 import lagunaJuego.Monstruos.Monstruos;
 
 public class MapaDeJuego {
@@ -65,6 +69,20 @@ public class MapaDeJuego {
 	public void comienzoDelJuego(Heroe h, Monstruos m1, Monstruos m2, Monstruos m3) {
 		
 		
+		
+		
+	}
+	
+	//Voy a generar los monstruos y meterlos en un arrayList
+	//Para que cuando derrote a uno, este se borre y pase al siguiente
+	public ArrayList<Monstruos> generadorMonstruos(){
+		List<Monstruos> ejercitoMonstruos = new ArrayList<>();
+		
+		ejercitoMonstruos.add(new Esbirros());
+		ejercitoMonstruos.add(new EsbirrosAltoNivel());
+		ejercitoMonstruos.add(new Jefe());
+		
+		return (ArrayList<Monstruos>) ejercitoMonstruos;
 		
 		
 	}

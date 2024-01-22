@@ -9,6 +9,7 @@ public class Monstruos {
 	public int mana;
 	public int ataque;
 
+
 	public String getNombre() {
 		return nombre;
 	}
