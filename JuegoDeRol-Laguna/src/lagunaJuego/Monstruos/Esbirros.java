@@ -7,11 +7,12 @@ public class Esbirros extends Monstruos {
 	private static Scanner sc = new Scanner(System.in);
 	
 	String nombre = "Esbirro";
-	String tipo = "Esbirros";
 	int vida = 200;
 	int armadura = 10;
 	int mana = 30;
 	int ataque = 30;
+	
+	
 	
 	
 	@Override

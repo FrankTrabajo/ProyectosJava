@@ -9,12 +9,6 @@ public class Heroe {
 	public int mana;
 	public int ataque;
 
-	public Heroe(String nombre, String tipo) {
-		super();
-		this.nombre = nombre;
-		this.tipo = tipo;
-	}
-
 	public String getNombre() {
 		return nombre;
 	}

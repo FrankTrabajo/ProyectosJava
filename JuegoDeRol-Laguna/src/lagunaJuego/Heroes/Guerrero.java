@@ -2,21 +2,19 @@ package lagunaJuego.Heroes;
 
 import java.util.Scanner;
 
-public class Guerro extends Heroe{
+public class Guerrero extends Heroe{
 
 	private static Scanner sc = new Scanner(System.in);
 	
 	String nombre;
-	String tipo = "Guerrero";
 	int vida = 500;
 	int armadura = 150;
 	int mana = 70;
 	int ataque = 80;
 	
 	
-	public Guerro(String nombre, String tipo, int vida, int armadura, int mana, int ataque) {
-		super(nombre, tipo);
-		
+	public Guerrero(String nombre) {
+		this.nombre = nombre;
 	}
 	
 	@Override

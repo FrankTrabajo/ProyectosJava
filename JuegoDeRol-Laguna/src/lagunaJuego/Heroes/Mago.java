@@ -7,15 +7,13 @@ public class Mago extends Heroe {
 	private static Scanner sc = new Scanner(System.in);
 	
 	String nombre;
-	String tipo = "Mago";
 	int vida = 250;
 	int armadura = 30;
 	int mana = 200;
 	int ataque = 60;
 	
-	public Mago(String nombre, String tipo, int vida, int armadura, int mana, int ataque) {
-		super(nombre, tipo);
-		
+	public Mago(String nombre) {
+		this.nombre = nombre;
 	}
 	
 	@Override

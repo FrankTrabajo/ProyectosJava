@@ -4,7 +4,10 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
+import lagunaJuego.Heroes.Arquero;
+import lagunaJuego.Heroes.Guerrero;
 import lagunaJuego.Heroes.Heroe;
+import lagunaJuego.Heroes.Mago;
 import lagunaJuego.Monstruos.Esbirros;
 import lagunaJuego.Monstruos.EsbirrosAltoNivel;
 import lagunaJuego.Monstruos.Jefe;
@@ -28,21 +31,7 @@ public class MapaDeJuego {
 	}
 	
 	
-	//Opcion de elegir personaje
-	public void menuDePersonajes() {
-		System.out.println("Este es el menu de personajes, aqui tendras que elegir entre Arquero, Guerrero o Mago");
-		System.out.println("Cual eliges?");
-		System.out.println("\t Los arqueros son muy habiles a la hora de luchar, pueden hasta atacar dos veces por turno");
-		System.out.println("\t Los guerreros son unos grandes, nobles y fuertes caballeros con gran armadura y mucha vida");
-		System.out.println("\t Los magos provienen de una antigua civilizacion, pueden lanzar muchos hechizos y tienen mucho daño");
-		String personaje = sc.next();
-		System.out.println("Como te llamas?");
-		String nombre = sc.next();
-		seleccionDelPersonaje(personaje, nombre);
-		
-		System.out.println("GENERANDO MUNDO...");
-		
-	}
+
 	
 	
 	//Presentacion por elegir personaje
@@ -51,25 +40,39 @@ public class MapaDeJuego {
 		System.out.println("Has elegido ser " + tipoPersonaje + " sabia eleccion");
 		
 		if(tipoPersonaje.equalsIgnoreCase("Arquero")) {
-			Heroe jugadorArquero = new Heroe(nombre, tipoPersonaje);
-			heroes =  jugadorArquero;
+			Arquero jugadorArquero = new Arquero(nombre);
+			heroes = jugadorArquero;
 		} else if(tipoPersonaje.equalsIgnoreCase("Guerrero")) {
-			Heroe  jugadorGuerrero = new Heroe(nombre, tipoPersonaje);
+			Guerrero jugadorGuerrero = new Guerrero(nombre);
 			heroes =  jugadorGuerrero;
 		} else if(tipoPersonaje.equalsIgnoreCase("Mago")) {
-			Heroe  jugadorMago = new Heroe(nombre, tipoPersonaje);
+			Mago jugadorMago = new Mago(nombre);
 			heroes =  jugadorMago;
 		}
+		System.out.println("********************************");
+		System.out.println("Creacion de personaje completada...");
+		System.out.println("********************************");
 		return heroes;
 
 	}
 	
 	//En el mapa tendremos que meter 3 enemigos y 1 solo heroe
 	
-	public void comienzoDelJuego(Heroe h, Monstruos m1, Monstruos m2, Monstruos m3) {
+	public void comienzoDelJuego(Heroe h, ArrayList<Monstruos> m) {
 		
+		ArrayList<Monstruos> ejercitoMonstruos = generadorMonstruos();
+		System.out.println("Este es el menu de personajes, aqui tendras que elegir entre Arquero, Guerrero o Mago");
+		System.out.println("Cual eliges?");
+		System.out.println("\t Los arqueros son muy habiles a la hora de luchar, pueden hasta atacar dos veces por turno");
+		System.out.println("\t Los guerreros son unos grandes, nobles y fuertes caballeros con gran armadura y mucha vida");
+		System.out.println("\t Los magos provienen de una antigua civilizacion, pueden lanzar muchos hechizos y tienen mucho daño");
+		String personaje = sc.next();
+		System.out.println("Como te llamas?");
+		String nombre = sc.next();
+		h = seleccionDelPersonaje(personaje, nombre);
 		
-		
+		//Aqui deberia de comenzar el menu de combate
+
 		
 	}
 	

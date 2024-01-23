@@ -7,15 +7,14 @@ public class Arquero extends Heroe{
 	private static Scanner sc = new Scanner(System.in);
 	
 	String nombre;
-	String tipo = "Arquero";
+
 	int vida = 300;
 	int armadura = 50;
 	int mana = 100;
 	int ataque = 40;
 	
-	public Arquero(String nombre, String tipo, int vida, int armadura, int mana, int ataque) {
-		super(nombre, tipo);
-		
+	public Arquero(String nombre) {
+		this.nombre = nombre;
 	}
 	
 	@Override

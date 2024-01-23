@@ -3,7 +3,6 @@ package lagunaJuego.Monstruos;
 public class Jefe extends Monstruos{
 
 	String nombre = "El Gran";
-	String tipo = "Jefe";
 	int vida = 1000;
 	int armadura = 45;
 	int mana = 200;
