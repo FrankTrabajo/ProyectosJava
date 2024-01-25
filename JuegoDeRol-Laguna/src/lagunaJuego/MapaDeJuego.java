@@ -21,17 +21,9 @@ public class MapaDeJuego {
 	int turno = 1;
 	int cont = 0;
 	Heroe heroes;
-	Monstruos bestias;
+	List<Monstruos> bestias;
 	private static Scanner sc = new Scanner(System.in);
 	
-	public MapaDeJuego(Heroe heroes, Monstruos bestias) {
-		super();
-		this.heroes = heroes;
-		this.bestias = bestias;
-	}
-	
-	
-
 	
 	
 	//Presentacion por elegir personaje
@@ -52,6 +44,10 @@ public class MapaDeJuego {
 		System.out.println("********************************");
 		System.out.println("Creacion de personaje completada...");
 		System.out.println("********************************");
+		System.out.println("Que comience la ruta para acabar con el Jefe!");
+		System.out.println("En los combates se te preguntara, si quieres hacer un ataque normal o uno especial");
+		System.out.println("Los especiales consumen mana asique no te olvides de mantenerla");
+		System.out.println("Por cada turno se regeneraran 10 de mana");
 		return heroes;
 
 	}
@@ -73,6 +69,11 @@ public class MapaDeJuego {
 		
 		//Aqui deberia de comenzar el menu de combate
 
+		
+	}
+	
+	public void combatePorTurnos() {
+		
 		
 	}
 	
