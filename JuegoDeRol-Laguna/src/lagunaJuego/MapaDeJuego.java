@@ -72,8 +72,31 @@ public class MapaDeJuego {
 		
 	}
 	
-	public void combatePorTurnos() {
+	public void combatePorTurnos(Heroe h, List<Monstruos> m) {
 		
+		boolean juegoIniciado = false;
+		
+		while(juegoIniciado){
+			
+			//Jugador ataca y tiene que elegir que ataque hacer
+			//Se realiza el ataque
+			//Los esbirros atacan
+			//Se realiza el ataque
+			//PASA RONDA 1 - SE RECUPERA 10 DE MANA AL JUGADOR
+			
+			
+			//ASI HASTA QUE O EL JUGADOR NO TENGA VIDA O LA LISTA DE MONSTRUOS QUEDE VACIA
+			
+			if(h.vida<0) {
+				System.out.println("Has perdido, ganaron los monstruos");
+				juegoIniciado = false;
+			}
+			if(m.isEmpty()) {
+				System.out.println("Gana " + h);
+				juegoIniciado = false;
+			}
+			
+		}
 		
 	}
 	
