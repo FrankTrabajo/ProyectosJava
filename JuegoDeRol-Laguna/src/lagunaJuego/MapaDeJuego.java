@@ -66,18 +66,22 @@ public class MapaDeJuego {
 		System.out.println("Como te llamas?");
 		String nombre = sc.next();
 		h = seleccionDelPersonaje(personaje, nombre);
-		
+		combatePorTurnos(h, ejercitoMonstruos);
 		//Aqui deberia de comenzar el menu de combate
-
 		
 	}
 	
 	public void combatePorTurnos(Heroe h, List<Monstruos> m) {
-		
-		boolean juegoIniciado = false;
-		
+		System.out.println(h.toString());
+		h.presentacion();
+		boolean juegoIniciado = true;
 		while(juegoIniciado){
 			
+			
+			
+			int daño = h.menuAtaque();
+			System.out.println("Has hecho " + daño + " puntos de daño" + " tu mana se ha actualizado " + h.mana);
+			System.out.println(h.toString());
 			//Jugador ataca y tiene que elegir que ataque hacer
 			//Se realiza el ataque
 			//Los esbirros atacan

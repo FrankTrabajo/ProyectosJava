@@ -22,6 +22,7 @@ public class Guerrero extends Heroe{
 		System.out.println("Soy " + nombre + " el guerrero, preparado para una paliza");
 	}
 	
+	@Override
 	public int menuAtaque() {
 		System.out.println("¿Que tipo de ataque deseas hacer?");
 		System.out.println("1. Ataque normal -30 mana");

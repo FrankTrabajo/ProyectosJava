@@ -28,7 +28,7 @@ public class Arquero extends Heroe{
 	
 	//El arquero tiene 300hp
 	
-	
+	@Override
 	public int menuAtaque() {
 		System.out.println("¿Que tipo de ataque deseas hacer?");
 		System.out.println("1. Ataque normal -30 mana");

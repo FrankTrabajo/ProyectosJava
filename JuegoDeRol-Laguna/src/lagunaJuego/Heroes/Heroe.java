@@ -67,6 +67,18 @@ public class Heroe {
 		//Aqui se presenta el personaje
 	}
 	
+	public int menuAtaque() {
+		return ataque;
+	}
+
+	@Override
+	public String toString() {
+		return "Heroe [nombre=" + nombre + ", tipo=" + tipo + ", vida=" + vida + ", armadura=" + armadura + ", mana="
+				+ mana + ", ataque=" + ataque + "]";
+	}
+	
+	
+	
 	
 	
 }

@@ -18,9 +18,10 @@ public class Mago extends Heroe {
 	
 	@Override
 	public void presentacion() {
-		System.out.println("Soy " + nombre + " el viejo mago, te convertire en polvo");
+		System.out.println("Soy " + nombre + " El Viejo Mago");
 	}
 	
+	@Override
 	public int menuAtaque() {
 		System.out.println("¿Que tipo de ataque deseas hacer?");
 		System.out.println("1. Ataque normal -30 mana");
@@ -63,25 +64,34 @@ public class Mago extends Heroe {
 		int daño = ataque;
 		int dadoUno = (int) (Math.random()*12+1);
 		int dadoDos = (int) (Math.random()*12+1);
+		System.out.println("dado1 :" + dadoUno + " dado2: " + dadoDos);
 		if(mana < 80) {
 			System.out.println("No tienes mana para atacar, te va a tocar esperar un turno");
 			daño = 0;
 		} else { 
 			mana -= 80;
 			if(dadoUno == dadoDos) {
-				daño = daño* 2;
+				daño = daño * 2;
 			}
 			else if ((dadoUno + dadoDos) % 2 == 0) {
-				daño = dadoUno*2;
+				daño = daño + (dadoUno + dadoDos)*2;
 			}
 			else {
-				daño += (dadoUno + dadoDos);
+				daño = daño + (dadoUno + dadoDos);
 			}
 		} 
 
 		return daño;
 	}
 
+	@Override
+	public String toString() {
+		return "Mago [nombre=" + nombre + ", vida=" + vida + ", armadura=" + armadura + ", mana=" + mana + ", ataque="
+				+ ataque + "]";
+	}
+
+	
+	
 	//El mago tiene mas daño que ninguno, pero tiene menos posibilidad de asertar un buen golpe
 	//El mago tiene menos vida y menos armadura que ninguno pero tiene mas mana
 	

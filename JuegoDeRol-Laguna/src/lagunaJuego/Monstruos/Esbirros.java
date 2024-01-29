@@ -13,8 +13,6 @@ public class Esbirros extends Monstruos {
 	int ataque = 30;
 	
 	
-	
-	
 	@Override
 	public void presentacion() {
 		System.out.println("Acabare contigo!");
