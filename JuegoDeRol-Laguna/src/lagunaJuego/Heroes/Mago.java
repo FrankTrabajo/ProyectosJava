@@ -18,7 +18,7 @@ public class Mago extends Heroe {
 	
 	@Override
 	public void presentacion() {
-		System.out.println("Soy " + nombre + " El Viejo Mago");
+		System.out.println("Soy " + this.nombre + " el Viejo Mago");
 	}
 	
 	@Override

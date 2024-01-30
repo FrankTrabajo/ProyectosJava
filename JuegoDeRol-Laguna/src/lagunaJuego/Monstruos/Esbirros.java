@@ -18,6 +18,7 @@ public class Esbirros extends Monstruos {
 		System.out.println("Acabare contigo!");
 	}
 	
+	@Override
 	public int ataqueEsbirro() {
 		int dado = (int) (Math.random()*12+1);
 		int daño = 0;

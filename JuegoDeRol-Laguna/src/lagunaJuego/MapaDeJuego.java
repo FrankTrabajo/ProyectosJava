@@ -76,12 +76,18 @@ public class MapaDeJuego {
 		h.presentacion();
 		boolean juegoIniciado = true;
 		while(juegoIniciado){
-			
-			
+			Monstruos monstruo = bestias.get(0);
 			
 			int daño = h.menuAtaque();
 			System.out.println("Has hecho " + daño + " puntos de daño" + " tu mana se ha actualizado " + h.mana);
 			System.out.println(h.toString());
+			
+			monstruo.danioRecibido(daño);
+			daño = 0;
+			System.out.println("Ahora atacará el monstruo");
+			daño = monstruo.ataqueEsbirro();
+			System.out.println("El monstruo ha hecho " + daño + " puntos de daño, su mana ahora es " + monstruo.mana);
+			System.out.println(monstruo.toString());
 			//Jugador ataca y tiene que elegir que ataque hacer
 			//Se realiza el ataque
 			//Los esbirros atacan
@@ -100,6 +106,16 @@ public class MapaDeJuego {
 				juegoIniciado = false;
 			}
 			
+		}
+		
+	}
+	
+	public void comprobarMonstruo(List<Monstruos> ejercito){
+		for (int i = 0; i < ejercito.size(); i++) {
+			Monstruos monstruo = bestias.get(i);
+			if(monstruo.vida <= 0) {
+				ejercito.remove(i);
+			}
 		}
 		
 	}

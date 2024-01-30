@@ -73,7 +73,7 @@ public class Heroe {
 
 	@Override
 	public String toString() {
-		return "Heroe [nombre=" + nombre + ", tipo=" + tipo + ", vida=" + vida + ", armadura=" + armadura + ", mana="
+		return "Heroe [nombre=" + nombre + ", vida=" + vida + ", armadura=" + armadura + ", mana="
 				+ mana + ", ataque=" + ataque + "]";
 	}
 	

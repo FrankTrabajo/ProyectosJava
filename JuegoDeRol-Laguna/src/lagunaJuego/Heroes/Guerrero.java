@@ -19,7 +19,7 @@ public class Guerrero extends Heroe{
 	
 	@Override
 	public void presentacion() {
-		System.out.println("Soy " + nombre + " el guerrero, preparado para una paliza");
+		System.out.println("Soy " + this.nombre + " el guerrero");
 	}
 	
 	@Override
