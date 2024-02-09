@@ -69,5 +69,9 @@ public class Monstruos {
 		//Aqui se presenta el personaje
 	}
 	
+	public int ataqueEsbirro() {
+		return ataque;
+	}
+	
 	
 }

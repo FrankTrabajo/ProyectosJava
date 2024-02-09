@@ -7,7 +7,6 @@ public class Esbirros extends Monstruos {
 	private static Scanner sc = new Scanner(System.in);
 	
 	String nombre = "Esbirro";
-	String tipo = "Esbirros";
 	int vida = 200;
 	int armadura = 10;
 	int mana = 30;
@@ -19,6 +18,7 @@ public class Esbirros extends Monstruos {
 		System.out.println("Acabare contigo!");
 	}
 	
+	@Override
 	public int ataqueEsbirro() {
 		int dado = (int) (Math.random()*12+1);
 		int daño = 0;

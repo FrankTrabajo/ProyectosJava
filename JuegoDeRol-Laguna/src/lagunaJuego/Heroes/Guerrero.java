@@ -2,28 +2,27 @@ package lagunaJuego.Heroes;
 
 import java.util.Scanner;
 
-public class Guerro extends Heroe{
+public class Guerrero extends Heroe{
 
 	private static Scanner sc = new Scanner(System.in);
 	
 	String nombre;
-	String tipo = "Guerrero";
 	int vida = 500;
 	int armadura = 150;
 	int mana = 70;
 	int ataque = 80;
 	
 	
-	public Guerro(String nombre, String tipo, int vida, int armadura, int mana, int ataque) {
-		super(nombre, tipo);
-		
+	public Guerrero(String nombre) {
+		this.nombre = nombre;
 	}
 	
 	@Override
 	public void presentacion() {
-		System.out.println("Soy " + nombre + " el guerrero, preparado para una paliza");
+		System.out.println("Soy " + this.nombre + " el guerrero");
 	}
 	
+	@Override
 	public int menuAtaque() {
 		System.out.println("¿Que tipo de ataque deseas hacer?");
 		System.out.println("1. Ataque normal -30 mana");

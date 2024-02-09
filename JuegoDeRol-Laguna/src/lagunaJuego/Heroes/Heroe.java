@@ -9,12 +9,6 @@ public class Heroe {
 	public int mana;
 	public int ataque;
 
-	public Heroe(String nombre, String tipo) {
-		super();
-		this.nombre = nombre;
-		this.tipo = tipo;
-	}
-
 	public String getNombre() {
 		return nombre;
 	}
@@ -72,6 +66,18 @@ public class Heroe {
 	public void presentacion() {
 		//Aqui se presenta el personaje
 	}
+	
+	public int menuAtaque() {
+		return ataque;
+	}
+
+	@Override
+	public String toString() {
+		return "Heroe [nombre=" + nombre + ", vida=" + vida + ", armadura=" + armadura + ", mana="
+				+ mana + ", ataque=" + ataque + "]";
+	}
+	
+	
 	
 	
 	

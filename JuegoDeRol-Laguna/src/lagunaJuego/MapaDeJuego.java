@@ -4,7 +4,10 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
+import lagunaJuego.Heroes.Arquero;
+import lagunaJuego.Heroes.Guerrero;
 import lagunaJuego.Heroes.Heroe;
+import lagunaJuego.Heroes.Mago;
 import lagunaJuego.Monstruos.Esbirros;
 import lagunaJuego.Monstruos.EsbirrosAltoNivel;
 import lagunaJuego.Monstruos.Jefe;
@@ -18,31 +21,9 @@ public class MapaDeJuego {
 	int turno = 1;
 	int cont = 0;
 	Heroe heroes;
-	Monstruos bestias;
+	List<Monstruos> bestias;
 	private static Scanner sc = new Scanner(System.in);
 	
-	public MapaDeJuego(Heroe heroes, Monstruos bestias) {
-		super();
-		this.heroes = heroes;
-		this.bestias = bestias;
-	}
-	
-	
-	//Opcion de elegir personaje
-	public void menuDePersonajes() {
-		System.out.println("Este es el menu de personajes, aqui tendras que elegir entre Arquero, Guerrero o Mago");
-		System.out.println("Cual eliges?");
-		System.out.println("\t Los arqueros son muy habiles a la hora de luchar, pueden hasta atacar dos veces por turno");
-		System.out.println("\t Los guerreros son unos grandes, nobles y fuertes caballeros con gran armadura y mucha vida");
-		System.out.println("\t Los magos provienen de una antigua civilizacion, pueden lanzar muchos hechizos y tienen mucho daño");
-		String personaje = sc.next();
-		System.out.println("Como te llamas?");
-		String nombre = sc.next();
-		seleccionDelPersonaje(personaje, nombre);
-		
-		System.out.println("GENERANDO MUNDO...");
-		
-	}
 	
 	
 	//Presentacion por elegir personaje
@@ -51,25 +32,91 @@ public class MapaDeJuego {
 		System.out.println("Has elegido ser " + tipoPersonaje + " sabia eleccion");
 		
 		if(tipoPersonaje.equalsIgnoreCase("Arquero")) {
-			Heroe jugadorArquero = new Heroe(nombre, tipoPersonaje);
-			heroes =  jugadorArquero;
+			Arquero jugadorArquero = new Arquero(nombre);
+			heroes = jugadorArquero;
 		} else if(tipoPersonaje.equalsIgnoreCase("Guerrero")) {
-			Heroe  jugadorGuerrero = new Heroe(nombre, tipoPersonaje);
+			Guerrero jugadorGuerrero = new Guerrero(nombre);
 			heroes =  jugadorGuerrero;
 		} else if(tipoPersonaje.equalsIgnoreCase("Mago")) {
-			Heroe  jugadorMago = new Heroe(nombre, tipoPersonaje);
+			Mago jugadorMago = new Mago(nombre);
 			heroes =  jugadorMago;
 		}
+		System.out.println("********************************");
+		System.out.println("Creacion de personaje completada...");
+		System.out.println("********************************");
+		System.out.println("Que comience la ruta para acabar con el Jefe!");
+		System.out.println("En los combates se te preguntara, si quieres hacer un ataque normal o uno especial");
+		System.out.println("Los especiales consumen mana asique no te olvides de mantenerla");
+		System.out.println("Por cada turno se regeneraran 10 de mana");
 		return heroes;
 
 	}
 	
 	//En el mapa tendremos que meter 3 enemigos y 1 solo heroe
 	
-	public void comienzoDelJuego(Heroe h, Monstruos m1, Monstruos m2, Monstruos m3) {
+	public void comienzoDelJuego(Heroe h, ArrayList<Monstruos> m) {
 		
+		ArrayList<Monstruos> ejercitoMonstruos = generadorMonstruos();
+		System.out.println("Este es el menu de personajes, aqui tendras que elegir entre Arquero, Guerrero o Mago");
+		System.out.println("Cual eliges?");
+		System.out.println("\t Los arqueros son muy habiles a la hora de luchar, pueden hasta atacar dos veces por turno");
+		System.out.println("\t Los guerreros son unos grandes, nobles y fuertes caballeros con gran armadura y mucha vida");
+		System.out.println("\t Los magos provienen de una antigua civilizacion, pueden lanzar muchos hechizos y tienen mucho daño");
+		String personaje = sc.next();
+		System.out.println("Como te llamas?");
+		String nombre = sc.next();
+		h = seleccionDelPersonaje(personaje, nombre);
+		combatePorTurnos(h, ejercitoMonstruos);
+		//Aqui deberia de comenzar el menu de combate
 		
+	}
+	
+	public void combatePorTurnos(Heroe h, List<Monstruos> m) {
+		System.out.println(h.toString());
+		h.presentacion();
+		boolean juegoIniciado = true;
+		while(juegoIniciado){
+			Monstruos monstruo = bestias.get(0);
+			
+			int daño = h.menuAtaque();
+			System.out.println("Has hecho " + daño + " puntos de daño" + " tu mana se ha actualizado " + h.mana);
+			System.out.println(h.toString());
+			
+			monstruo.danioRecibido(daño);
+			daño = 0;
+			System.out.println("Ahora atacará el monstruo");
+			daño = monstruo.ataqueEsbirro();
+			System.out.println("El monstruo ha hecho " + daño + " puntos de daño, su mana ahora es " + monstruo.mana);
+			System.out.println(monstruo.toString());
+			//Jugador ataca y tiene que elegir que ataque hacer
+			//Se realiza el ataque
+			//Los esbirros atacan
+			//Se realiza el ataque
+			//PASA RONDA 1 - SE RECUPERA 10 DE MANA AL JUGADOR
+			
+			
+			//ASI HASTA QUE O EL JUGADOR NO TENGA VIDA O LA LISTA DE MONSTRUOS QUEDE VACIA
+			
+			if(h.vida<0) {
+				System.out.println("Has perdido, ganaron los monstruos");
+				juegoIniciado = false;
+			}
+			if(m.isEmpty()) {
+				System.out.println("Gana " + h);
+				juegoIniciado = false;
+			}
+			
+		}
 		
+	}
+	
+	public void comprobarMonstruo(List<Monstruos> ejercito){
+		for (int i = 0; i < ejercito.size(); i++) {
+			Monstruos monstruo = bestias.get(i);
+			if(monstruo.vida <= 0) {
+				ejercito.remove(i);
+			}
+		}
 		
 	}
 	

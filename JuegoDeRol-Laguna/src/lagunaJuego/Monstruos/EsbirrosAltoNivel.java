@@ -7,7 +7,6 @@ public class EsbirrosAltoNivel extends Monstruos {
 	private static Scanner sc = new Scanner(System.in);
 	
 	String nombre = "Esbirro alto nivel";
-	String tipo = "EsbirroAlto";
 	int vida = 400;
 	int armadura = 30;
 	int mana = 50;
