@@ -63,6 +63,13 @@ public class EsbirrosAltoNivel extends Monstruos {
 
 		return daño;
 	}
+
+	@Override
+	public String toString() {
+		return "EsbirrosAltoNivel [nombre=" + nombre + ", vida=" + vida + ", armadura=" + armadura + ", mana=" + mana
+				+ ", ataque=" + ataque + "]";
+	}
+	
 	
 
 	// Los esbirros solo tienen una tirada de dados, dependiendo del numero tienen otra tirada mas

@@ -54,9 +54,9 @@ public class MapaDeJuego {
 	
 	//En el mapa tendremos que meter 3 enemigos y 1 solo heroe
 	
-	public void comienzoDelJuego(Heroe h, ArrayList<Monstruos> m) {
+	public void comienzoDelJuego(Heroe h, List<Monstruos> m) {
 		
-		ArrayList<Monstruos> ejercitoMonstruos = generadorMonstruos();
+		this.bestias = generadorMonstruos();
 		System.out.println("Este es el menu de personajes, aqui tendras que elegir entre Arquero, Guerrero o Mago");
 		System.out.println("Cual eliges?");
 		System.out.println("\t Los arqueros son muy habiles a la hora de luchar, pueden hasta atacar dos veces por turno");
@@ -66,7 +66,7 @@ public class MapaDeJuego {
 		System.out.println("Como te llamas?");
 		String nombre = sc.next();
 		h = seleccionDelPersonaje(personaje, nombre);
-		combatePorTurnos(h, ejercitoMonstruos);
+		combatePorTurnos(h, this.bestias);
 		//Aqui deberia de comenzar el menu de combate
 		
 	}
@@ -76,7 +76,7 @@ public class MapaDeJuego {
 		h.presentacion();
 		boolean juegoIniciado = true;
 		while(juegoIniciado){
-			Monstruos monstruo = bestias.get(0);
+			Monstruos monstruo = bestias.get(1);
 			
 			int daño = h.menuAtaque();
 			System.out.println("Has hecho " + daño + " puntos de daño" + " tu mana se ha actualizado " + h.mana);
@@ -122,14 +122,14 @@ public class MapaDeJuego {
 	
 	//Voy a generar los monstruos y meterlos en un arrayList
 	//Para que cuando derrote a uno, este se borre y pase al siguiente
-	public ArrayList<Monstruos> generadorMonstruos(){
+	public List<Monstruos> generadorMonstruos(){
 		List<Monstruos> ejercitoMonstruos = new ArrayList<>();
 		
 		ejercitoMonstruos.add(new Esbirros());
 		ejercitoMonstruos.add(new EsbirrosAltoNivel());
 		ejercitoMonstruos.add(new Jefe());
 		
-		return (ArrayList<Monstruos>) ejercitoMonstruos;
+		return ejercitoMonstruos;
 		
 		
 	}

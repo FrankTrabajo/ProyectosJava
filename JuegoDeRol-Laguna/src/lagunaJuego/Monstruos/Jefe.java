@@ -61,6 +61,14 @@ public class Jefe extends Monstruos{
 
 		return daño;
 	}
+
+	@Override
+	public String toString() {
+		return "Jefe [nombre=" + nombre + ", vida=" + vida + ", armadura=" + armadura + ", mana=" + mana + ", ataque="
+				+ ataque + "]";
+	}
+	
+	
 	
 	
 	//Tiene mas vida que ningun otro personaje del juego

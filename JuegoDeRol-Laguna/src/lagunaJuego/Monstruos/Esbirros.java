@@ -65,6 +65,14 @@ public class Esbirros extends Monstruos {
 
 		return daño;
 	}
+
+	@Override
+	public String toString() {
+		return "Esbirros [nombre=" + nombre + ", vida=" + vida + ", armadura=" + armadura + ", mana=" + mana
+				+ ", ataque=" + ataque + "]";
+	}
+	
+	
 	
 	//Los esbirros solo tienen una tirada de dados
 	//Tienen poco daño y poca vida
