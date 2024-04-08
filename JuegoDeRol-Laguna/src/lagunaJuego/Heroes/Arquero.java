@@ -70,6 +70,12 @@ public class Arquero extends Heroe{
 		mana -= 55;
 		return daño;
 	}
+
+	@Override
+	public String toString() {
+		return "Arquero [nombre=" + nombre + ", vida=" + vida + ", armadura=" + armadura + ", mana=" + mana
+				+ ", ataque=" + ataque + "]";
+	}
 	
 
 }

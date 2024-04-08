@@ -71,6 +71,13 @@ public class Guerrero extends Heroe{
 		return daño;
 	}
 
+	@Override
+	public String toString() {
+		return "Guerrero [nombre=" + nombre + ", vida=" + vida + ", armadura=" + armadura + ", mana=" + mana
+				+ ", ataque=" + ataque + "]";
+	}
+	
+
 	//El guerrero solo puede tirar un dado, dependiendo del numero que salga hara mas daño o no
 	//Tiene mas armadura que ninguno, tiene mas vida, pero tiene menos mana que ninguno
 	
